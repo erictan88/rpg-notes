@@ -1,22 +1,19 @@
 {
-    "name": "RPG (Notes)",
-    "description": "",
+    "name": "rpg-notes",
     "dependencies": {
-        "device": "*",
-        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
-        "edge-connector": "*"
+        "device": "*"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
+        ".vscode/settings.json",
+        ".vscode/tasks.json",
         "README.md",
         "assets.json",
+        "main.blocks",
+        "main.ts",
+        "test.ts",
         "tilemap.g.jres",
         "tilemap.g.ts",
-        null
-    ],
-    "testFiles": [
-        "test.ts"
+        "tsconfig.json"
     ],
     "targetVersions": {
         "target": "1.7.22",

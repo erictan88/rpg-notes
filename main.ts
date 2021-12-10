@@ -516,10 +516,6 @@ sprites.onOverlap(SpriteKind.kind_cursor, SpriteKind.items_pancake, function (sp
             . . . 4 4 4 4 4 4 4 4 . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.items_pancake)
-    } else if (controller.A.isPressed() && item_pancake == 2) {
-        item_pancake = 1
-        Map()
-        Hero.setPosition(hero_x, hero_y)
     }
 })
 function clearItems () {
@@ -659,6 +655,14 @@ let NPC2 = sprites.create(img`
     `, SpriteKind.kind_NPC2)
 tiles.placeOnTile(NPC2, tiles.getTileLocation(47, 1))
 game.onUpdate(function () {
+    if (item_pancake == 2) {
+        pancake.setPosition(Hero.x, Hero.y - 16)
+        if (controller.B.isPressed()) {
+            item_pancake = 1
+        }
+    }
+})
+game.onUpdate(function () {
     if (Math.sqrt((Hero.x - Ghost2.x) * (Hero.x - Ghost2.x) + (Hero.y - Ghost2.y) * (Hero.y - Ghost2.y)) < 64) {
         Ghost2.follow(Hero, 30)
     } else {
@@ -684,11 +688,6 @@ game.onUpdate(function () {
         if (Ghost.isHittingTile(CollisionDirection.Top)) {
             Ghost.vx = 20
         }
-    }
-})
-game.onUpdate(function () {
-    if (item_pancake == 2) {
-        pancake.setPosition(Hero.x, Hero.y - 16)
     }
 })
 game.onUpdate(function () {
